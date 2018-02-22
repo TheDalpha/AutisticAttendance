@@ -17,8 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="584.0" prefWidth="840.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="autisticattendence.gui.controller.TeacherViewController">
+<AnchorPane id="AnchorPane" prefHeight="584.0" prefWidth="840.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autisticattendence.gui.controller.TeacherViewController">
    <children>
       <BorderPane layoutY="-6.0" prefHeight="594.0" prefWidth="861.0" style="-fx-background-color: #919393;">
          <right>
@@ -292,13 +291,19 @@
             </BorderPane>
          </left>
          <top>
-            <Pane prefHeight="25.0" prefWidth="856.0" style="-fx-background-color: #919393; -fx-background-radius: 0.5em;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="25.0" prefWidth="856.0" style="-fx-background-color: Grey; -fx-background-radius: 0.5em;" BorderPane.alignment="CENTER">
                <children>
                   <Label alignment="CENTER" layoutX="231.0" layoutY="4.0" prefHeight="17.0" prefWidth="394.0" text="&lt;School Name&gt;">
                      <font>
                         <Font name="Rockwell Extra Bold" size="19.0" />
                      </font>
                   </Label>
+                  <Label layoutX="686.0" layoutY="7.0" text="&lt;Teacher name&gt;" />
+                  <JFXButton fx:id="logOut" layoutX="797.0" layoutY="6.0" onAction="#logOut" prefHeight="2.0" prefWidth="54.0" style="-fx-background-color: grey;" text="Logout">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </Pane>
          </top>

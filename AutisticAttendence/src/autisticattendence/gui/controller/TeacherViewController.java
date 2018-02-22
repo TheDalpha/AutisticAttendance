@@ -17,7 +17,10 @@ import java.util.logging.Logger;
 import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -88,6 +91,8 @@ public class TeacherViewController implements Initializable {
     private ToggleGroup group4;
     @FXML
     private ToggleGroup group5;
+    @FXML
+    private JFXButton logOut;
     
 
     /**
@@ -134,6 +139,21 @@ public class TeacherViewController implements Initializable {
 
     @FXML
     private void submit(ActionEvent event) {
+    }
+
+    @FXML
+    private void logOut(ActionEvent event) throws IOException {
+        Stage stage1 = (Stage) logOut.getScene().getWindow();
+        stage1.close();
+        
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/autisticattendence/gui/view/LoginView.fxml"));
+
+        Scene scene = new Scene(root);
+            
+
+        stage.setScene(scene);
+        stage.show();
     }
 
     
