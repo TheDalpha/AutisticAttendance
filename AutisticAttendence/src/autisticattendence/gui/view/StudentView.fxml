@@ -19,7 +19,7 @@
          <children>
             <ImageView fitHeight="107.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Pictures/Coffee-Photo-1.jpg" />
+                  <Image url="@Profile%20picture.gif" />
                </image>
             </ImageView>
             <VBox alignment="CENTER_LEFT" prefHeight="87.0" prefWidth="184.0">
@@ -115,91 +115,39 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox prefHeight="0.0" prefWidth="179.0">
-                     <children>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
-                           <HBox.margin>
-                              <Insets top="20.0" />
-                           </HBox.margin>
-                           <toggleGroup>
-                              <ToggleGroup fx:id="group1" />
-                           </toggleGroup>
-                        </JFXRadioButton>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group1">
-                           <HBox.margin>
-                              <Insets top="20.0" />
-                           </HBox.margin>
-                        </JFXRadioButton>
-                     </children>
-                  </HBox>
+                  <Label text="Absent" textFill="RED">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Absent" textFill="RED">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="Present" textFill="#229e35">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </Label>
                   <HBox alignment="TOP_CENTER" prefHeight="10.0" prefWidth="179.0">
                      <children>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <toggleGroup>
-                              <ToggleGroup fx:id="group2" />
-                           </toggleGroup>
-                        </JFXRadioButton>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group2">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </JFXRadioButton>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="0.0" prefWidth="179.0">
-                     <children>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <toggleGroup>
-                              <ToggleGroup fx:id="group3" />
-                           </toggleGroup>
-                        </JFXRadioButton>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group3">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </JFXRadioButton>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="0.0" prefWidth="179.0">
-                     <children>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                           <toggleGroup>
-                              <ToggleGroup fx:id="group4" />
-                           </toggleGroup>
-                        </JFXRadioButton>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group4">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </JFXRadioButton>
-                     </children>
-                  </HBox>
-                  <HBox prefHeight="0.0" prefWidth="179.0">
-                     <children>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
+                        <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent">
                            <toggleGroup>
                               <ToggleGroup fx:id="group5" />
                            </toggleGroup>
                         </JFXRadioButton>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group5">
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </JFXRadioButton>
+                        <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present" toggleGroup="$group5" />
                      </children>
                   </HBox>
+                  <Label text="Not yet active">
+                     <font>
+                        <Font name="Arial Bold" size="15.0" />
+                     </font>
+                  </Label>
                </children>
             </VBox>
          </children>
@@ -222,4 +170,3 @@
       </HBox>
    </bottom>
 </BorderPane>
-

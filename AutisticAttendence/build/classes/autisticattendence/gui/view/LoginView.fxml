@@ -4,17 +4,32 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="236.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autisticattendence.gui.controller.LoginViewController">
+<AnchorPane id="AnchorPane" prefHeight="295.0" prefWidth="321.0" style="-fx-background-color: #919393;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autisticattendence.gui.controller.LoginViewController">
    <children>
-      <Label layoutX="104.0" layoutY="14.0" text="Attendence">
+      <Label layoutX="104.0" layoutY="47.0" text="Attendence">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtUserName" layoutX="76.0" layoutY="87.0" promptText="Username" />
-      <JFXTextField fx:id="txtPassword" layoutX="76.0" layoutY="139.0" promptText="Password" />
-      <JFXButton fx:id="loginBtn" layoutX="128.0" layoutY="191.0" onAction="#loginBtn" text="Login" />
+      <JFXTextField fx:id="txtUserName" layoutX="93.0" layoutY="123.0" promptText="Username" />
+      <JFXTextField fx:id="txtPassword" layoutX="93.0" layoutY="175.0" promptText="Password" />
+      <JFXButton fx:id="loginBtn" layoutX="138.0" layoutY="223.0" onAction="#loginBtn" text="Login" />
+      <Label layoutX="14.0" layoutY="47.0" text="Teacher Login:" />
+      <Label layoutX="14.0" layoutY="64.0" text="Username: user" />
+      <Label layoutX="14.0" layoutY="81.0" text="Password: pass" />
+      <Label layoutX="230.0" layoutY="47.0" text="Student Login:" />
+      <Label layoutX="230.0" layoutY="64.0" text="anything" />
+      <Pane layoutX="-4.0" prefHeight="25.0" prefWidth="327.0" style="-fx-background-color: GREY; -fx-background-radius: 0.5em;">
+         <children>
+            <Label alignment="CENTER" layoutX="75.0" layoutY="1.0" prefHeight="23.0" prefWidth="177.0" text="&lt;School Name&gt;">
+               <font>
+                  <Font name="Rockwell Extra Bold" size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

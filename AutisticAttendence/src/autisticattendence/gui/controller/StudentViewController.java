@@ -54,14 +54,6 @@ public class StudentViewController implements Initializable
     @FXML
     private Label timeLbl5;
     @FXML
-    private ToggleGroup group1;
-    @FXML
-    private ToggleGroup group2;
-    @FXML
-    private ToggleGroup group3;
-    @FXML
-    private ToggleGroup group4;
-    @FXML
     private ToggleGroup group5;
     @FXML
     private JFXComboBox<?> weekCombo;
