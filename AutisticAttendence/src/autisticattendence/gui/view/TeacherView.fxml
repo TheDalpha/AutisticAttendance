@@ -1,22 +1,310 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="autisticattendence.gui.controller.TeacherViewController">
+<AnchorPane id="AnchorPane" prefHeight="584.0" prefWidth="840.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="autisticattendence.gui.controller.TeacherViewController">
    <children>
-      <BorderPane layoutX="-7.0" layoutY="-6.0" prefHeight="416.0" prefWidth="617.0">
+      <BorderPane layoutY="-6.0" prefHeight="594.0" prefWidth="861.0" style="-fx-background-color: #919393;">
          <right>
-            <TableView fx:id="tableStudent" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="tableStudent" prefHeight="520.0" prefWidth="200.0" style="-fx-background-color: darkgray;" BorderPane.alignment="CENTER">
               <columns>
-                <TableColumn fx:id="studentClmName" prefWidth="128.0" text="C1" />
-                <TableColumn fx:id="studentClmAbsence" prefWidth="71.0" text="C2" />
+                <TableColumn fx:id="studentClmName" prefWidth="128.0" style="-fx-background-color: darkgray;" text="Name" />
+                <TableColumn fx:id="studentClmAbsence" prefWidth="71.0" style="-fx-background-color: darkgray;" text="Absence" />
               </columns>
             </TableView>
          </right>
+         <left>
+            <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="646.0" style="-fx-background-color: darkgray;" BorderPane.alignment="CENTER">
+               <top>
+                  <HBox alignment="TOP_CENTER" prefHeight="109.0" prefWidth="632.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="107.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Profile%20picture.gif" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER_LEFT" prefHeight="87.0" prefWidth="184.0">
+                           <children>
+                              <Label fx:id="nameLbl" text="Oliver Sylvest Hansen">
+                                 <font>
+                                    <Font name="Arial Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="totalLbl" text="Total Absence: 75%">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </top>
+               <left>
+                  <VBox alignment="TOP_CENTER" prefHeight="210.0" prefWidth="100.0" spacing="5.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Classes">
+                           <font>
+                              <Font name="Arial Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="oneBtn" onAction="#classOne" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 1" />
+                        <JFXButton fx:id="twoBtn" onAction="#classTwo" prefHeight="4.0" prefWidth="98.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 2" />
+                        <JFXButton fx:id="threeBtn" onAction="#classThree" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 3" />
+                        <JFXButton fx:id="fourBtn" onAction="#classFour" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 4" />
+                        <JFXButton fx:id="fiveBtn" onAction="#classFive" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 5" />
+                     </children>
+                  </VBox>
+               </left>
+               <center>
+                  <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXComboBox fx:id="weekCombo" promptText="Week 21">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </JFXComboBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+                           <children>
+                              <Label text="Date">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="dateLbl1" text="04/05/2018">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="dateLbl2" text="04/05/2018" />
+                              <Label fx:id="dateLbl3" text="04/05/2018" />
+                              <Label fx:id="dateLbl4" text="04/05/2018" />
+                              <Label fx:id="dateLbl5" text="04/05/2018" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="119.0" spacing="20.0">
+                           <children>
+                              <Label text="Time">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="timeLbl1" text="9:00am - 11:30am">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="timeLbl2" text="9:00am - 11:30am" />
+                              <Label fx:id="timeLbl3" text="9:00am - 11:30am" />
+                              <Label fx:id="timeLbl4" text="9:00am - 11:30am" />
+                              <Label fx:id="timeLbl5" text="9:00am - 11:30am" />
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="311.0" prefWidth="154.0" spacing="20.0">
+                           <children>
+                              <Label text="Set Status">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox prefHeight="0.0" prefWidth="179.0">
+                                 <children>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
+                                       <HBox.margin>
+                                          <Insets top="20.0" />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="group1" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group1">
+                                       <HBox.margin>
+                                          <Insets top="20.0" />
+                                       </HBox.margin>
+                                    </JFXRadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="TOP_CENTER" prefHeight="10.0" prefWidth="179.0">
+                                 <children>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="group2" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group2">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXRadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="0.0" prefWidth="179.0">
+                                 <children>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="group3" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group3">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXRadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="0.0" prefWidth="179.0">
+                                 <children>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="group4" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group4">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXRadioButton>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="0.0" prefWidth="179.0">
+                                 <children>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="group5" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent" toggleGroup="$group5">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </JFXRadioButton>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="340.0" prefWidth="78.0">
+                           <children>
+                              <Label text="Current">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label text="Status">
+                                 <font>
+                                    <Font name="Arial Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Absent" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Arial Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Absent" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets top="22.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Present" textFill="#229e35">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label text="Absent" textFill="RED">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Arial" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="Present" textFill="#229e35">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </center>
+               <bottom>
+                  <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="646.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <JFXButton onAction="#submit" style="-fx-border-color: gray;" text="Submit">
+                           <HBox.margin>
+                              <Insets left="120.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                        <Label fx:id="classLbl" text="Absence over class: 20 %">
+                           <HBox.margin>
+                              <Insets left="250.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+               </bottom>
+            </BorderPane>
+         </left>
+         <top>
+            <Pane prefHeight="25.0" prefWidth="856.0" style="-fx-background-color: #919393; -fx-background-radius: 0.5em;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" layoutX="231.0" layoutY="4.0" prefHeight="17.0" prefWidth="394.0" text="&lt;School Name&gt;">
+                     <font>
+                        <Font name="Rockwell Extra Bold" size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <bottom>
+            <Pane prefHeight="25.0" prefWidth="856.0" style="-fx-background-color: #919393; -fx-background-radius: 0.5em;" BorderPane.alignment="CENTER" />
+         </bottom>
       </BorderPane>
    </children>
 </AnchorPane>
