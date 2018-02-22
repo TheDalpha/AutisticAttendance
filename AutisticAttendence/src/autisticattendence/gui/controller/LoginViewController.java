@@ -46,8 +46,18 @@ public class LoginViewController implements Initializable
     private void loginBtn(ActionEvent event) throws IOException
     {
         if (txtUserName.getText().equals("user") && txtPassword.getText().equals("pass")) {
+            Stage stage1 = (Stage) loginBtn.getScene().getWindow();
+        stage1.close();
+        
+        Stage stage = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/autisticattendence/gui/view/TeacherView.fxml"));
+
+        Scene scene = new Scene(root);
             
-        }
+
+        stage.setScene(scene);
+        stage.show();
+        } else {
         Stage stage1 = (Stage) loginBtn.getScene().getWindow();
         stage1.close();
         
@@ -59,6 +69,7 @@ public class LoginViewController implements Initializable
 
         stage.setScene(scene);
         stage.show();
+        }
     }
     }
     

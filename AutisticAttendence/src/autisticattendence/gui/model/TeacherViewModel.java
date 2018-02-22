@@ -9,6 +9,8 @@ import autisticattendence.be.Teacher;
 import autisticattendence.bll.TeacherManager;
 import java.io.IOException;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -17,13 +19,32 @@ import java.util.List;
 public class TeacherViewModel
 {
     TeacherManager tm;
+    public ObservableList<Teacher> studentList;
+    private static TeacherViewModel instance;
     
     public TeacherViewModel() throws IOException {
         this.tm = new TeacherManager();
+        studentList = FXCollections.observableArrayList();
     }
     
-    public List<Teacher> getAllStudents() {
-        return tm.getAllStudents();
+    public ObservableList<Teacher> getStudents() {
+        return studentList;
     }
+    
+    public void loadStudents() {
+        studentList.clear();
+        studentList.addAll(tm.getAllStudents());
+    }
+    
+    public static TeacherViewModel getInstance() throws IOException
+    {
+        if (instance == null)
+        {
+            instance = new TeacherViewModel();
+        }
+        return instance;
+    }
+    
+    
     
 }

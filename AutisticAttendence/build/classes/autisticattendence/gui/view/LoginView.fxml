@@ -13,8 +13,8 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <JFXTextField layoutX="76.0" layoutY="87.0" promptText="Username" />
-      <JFXTextField layoutX="76.0" layoutY="139.0" promptText="Password" />
+      <JFXTextField fx:id="txtUserName" layoutX="76.0" layoutY="87.0" promptText="Username" />
+      <JFXTextField fx:id="txtPassword" layoutX="76.0" layoutY="139.0" promptText="Password" />
       <JFXButton fx:id="loginBtn" layoutX="128.0" layoutY="191.0" onAction="#loginBtn" text="Login" />
    </children>
 </AnchorPane>
