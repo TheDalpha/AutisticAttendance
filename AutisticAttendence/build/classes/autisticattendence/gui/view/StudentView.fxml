@@ -56,8 +56,11 @@
          <children>
             <Label text="Classes">
                <font>
-                  <Font name="Arial Bold" size="17.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
             </Label>
          </children>
       </VBox>
