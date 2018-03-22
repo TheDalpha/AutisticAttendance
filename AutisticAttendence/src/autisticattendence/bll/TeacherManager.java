@@ -22,8 +22,8 @@ public class TeacherManager
         this.tdao = new TeacherDAO();
     }
     
-    public List<Teacher> getAllStudents() {
-        return tdao.getAllStudents();
+    public List<Teacher> getAllTeachers() {
+        return tdao.getAllTeachers();
     }
     
 }

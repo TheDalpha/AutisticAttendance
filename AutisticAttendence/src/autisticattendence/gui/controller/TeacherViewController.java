@@ -105,14 +105,12 @@ public class TeacherViewController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        tableStudent.setItems(tvm.getStudents());
         
         studentClmName.setCellValueFactory(
                 new PropertyValueFactory("name"));
         studentClmAbsence.setCellValueFactory(
                 new PropertyValueFactory("absence"));
         
-        tvm.loadStudents();
         
         
     }    

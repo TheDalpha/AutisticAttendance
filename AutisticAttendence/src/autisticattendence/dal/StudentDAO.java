@@ -5,6 +5,7 @@
  */
 package autisticattendence.dal;
 
+import autisticattendence.be.Student;
 import autisticattendence.be.Teacher;
 import java.io.IOException;
 import java.sql.Connection;
@@ -18,39 +19,41 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author ollie
+ * @author Jesper Riis
  */
-public class TeacherDAO
-{
+public class StudentDAO {
+    
     private DataBaseConnector dbConnector;
     
-    public TeacherDAO() throws IOException {
+    public StudentDAO() throws IOException {
         dbConnector = new DataBaseConnector();
     }
     
-    public List<Teacher> getAllTeachers() {
-        List<Teacher> allTeachers = new ArrayList();
+    public List<Student> getAllStudents() {
+        List<Student> allStudents = new ArrayList();
         
         try (Connection con = dbConnector.getConnection()) {
             PreparedStatement pstmt
-                    = con.prepareStatement("SELECT * FROM Teacher");
+                    = con.prepareStatement("SELECT * FROM Student");
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
-                Teacher teacher = new Teacher();
-                teacher.setTeacherId(rs.getInt("teacherId"));
-                teacher.setFirstName(rs.getString("firstName"));
-                teacher.setLastName(rs.getString("lastName"));
-                teacher.setEmail(rs.getString("mail"));
-                teacher.setPhoneNr(rs.getInt("phone"));
-                teacher.setUsername(rs.getString("username"));
-                teacher.setPassword(rs.getString("password"));
+                Student student = new Student();
+                student.setStudentId(rs.getInt("studentId"));
+                student.setFirstName(rs.getString("firstName"));
+                student.setLastName(rs.getString("lastName"));
+                student.setEmail(rs.getString("mail"));
+                student.setPhoneNr(rs.getInt("phone"));
+                student.setAddress(rs.getString("address"));
+                student.setUsername(rs.getString("username"));
+                student.setPassword(rs.getString("password"));
+                student.setAbsence(rs.getInt("Absence"));
                 
-                allTeachers.add(teacher);
+                allStudents.add(student);
             }
         } catch (SQLException ex) {
             Logger.getLogger(TeacherDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return allTeachers;
+        return allStudents;
     }
     
 }

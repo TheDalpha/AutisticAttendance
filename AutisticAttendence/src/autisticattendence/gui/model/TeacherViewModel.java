@@ -19,21 +19,21 @@ import javafx.collections.ObservableList;
 public class TeacherViewModel
 {
     TeacherManager tm;
-    public ObservableList<Teacher> studentList;
+    public ObservableList<Teacher> teacherList;
     private static TeacherViewModel instance;
     
     public TeacherViewModel() throws IOException {
         this.tm = new TeacherManager();
-        studentList = FXCollections.observableArrayList();
+        teacherList = FXCollections.observableArrayList();
     }
     
-    public ObservableList<Teacher> getStudents() {
-        return studentList;
+    public ObservableList<Teacher> getTeachers() {
+        return teacherList;
     }
     
-    public void loadStudents() {
-        studentList.clear();
-        studentList.addAll(tm.getAllStudents());
+    public void loadTeachers() {
+       teacherList.clear();
+       teacherList.addAll(tm.getAllTeachers());
     }
     
     public static TeacherViewModel getInstance() throws IOException

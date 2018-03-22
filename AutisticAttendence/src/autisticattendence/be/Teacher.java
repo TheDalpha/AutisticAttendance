@@ -9,74 +9,27 @@ package autisticattendence.be;
  *
  * @author ollie
  */
-public class Teacher
+public class Teacher extends Person
 {
     
-    public String name;
+        private int teacherId;
 
     /**
-     * Get the value of name
+     * Get the value of teacherId
      *
-     * @return the value of name
+     * @return the value of teacherId
      */
-    public String getName()
-    {
-        return name;
+    public int getTeacherId() {
+        return teacherId;
     }
 
     /**
-     * Set the value of name
+     * Set the value of teacherId
      *
-     * @param name new value of name
+     * @param teacherId new value of teacherId
      */
-    public void setName(String name)
-    {
-        this.name = name;
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
-    
-    public double absence;
-
-    /**
-     * Get the value of absence
-     *
-     * @return the value of absence
-     */
-    public double getAbsence()
-    {
-        return absence;
-    }
-
-    /**
-     * Set the value of absence
-     *
-     * @param absence new value of absence
-     */
-    public void setAbsence(double absence)
-    {
-        this.absence = absence;
-    }
-    
-    public int id;
-
-    /**
-     * Get the value of id
-     *
-     * @return the value of id
-     */
-    public int getId()
-    {
-        return id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @param id new value of id
-     */
-    public void setId(int id)
-    {
-        this.id = id;
-    }
-
     
 }
