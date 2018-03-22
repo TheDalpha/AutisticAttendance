@@ -1,46 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="628.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autisticattendence.gui.controller.StudentViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="628.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autisticattendence.gui.controller.StudentViewController">
    <top>
-      <HBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="600.0" style="-fx-border-color: black;" BorderPane.alignment="CENTER">
+      <HBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="107.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Profile%20picture.gif" />
-               </image>
-            </ImageView>
-            <VBox alignment="CENTER_LEFT" prefHeight="87.0" prefWidth="184.0">
+            <VBox alignment="CENTER" prefHeight="87.0" prefWidth="666.0">
                <children>
-                  <Label fx:id="nameLbl" text="Oliver Sylvest Hansen">
+                  <Pane prefHeight="27.0" prefWidth="628.0" style="-fx-background-color: Grey;">
+                     <children>
+                        <Label alignment="CENTER" layoutX="282.0" layoutY="-9.0" prefHeight="37.0" prefWidth="83.0" text="EASV">
+                           <font>
+                              <Font name="Rockwell Extra Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="logOut" layoutX="562.0" onAction="#logOut" prefHeight="0.0" prefWidth="66.0" style="-fx-background-color: grey;" text="Logout">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Pane>
+                  <VBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="626.0" />
+                  <Label fx:id="nameLbl" alignment="CENTER" contentDisplay="CENTER" text="name">
                      <font>
                         <Font name="Arial Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Label fx:id="totalLbl" text="Total Absence: 75%">
+                  <Label fx:id="totalLbl" text="Total Absence: ">
                      <font>
                         <Font size="17.0" />
                      </font>
                   </Label>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </VBox>
-            <JFXButton fx:id="logOut" onAction="#logOut" prefHeight="2.0" prefWidth="54.0" style="-fx-background-color: grey;" text="Log out">
-               <font>
-                  <Font size="9.0" />
-               </font>
-            </JFXButton>
          </children>
       </HBox>
    </top>
@@ -49,26 +56,19 @@
          <children>
             <Label text="Classes">
                <font>
-                  <Font name="Arial Bold" size="17.0" />
+                  <Font name="Arial Bold" size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
             </Label>
-            <JFXButton fx:id="oneBtn" onAction="#classOne" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 1" />
-            <JFXButton fx:id="twoBtn" onAction="#classTwo" prefHeight="4.0" prefWidth="98.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 2" />
-            <JFXButton fx:id="threeBtn" onAction="#classThree" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 3" />
-            <JFXButton fx:id="fourBtn" onAction="#classFour" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 4" />
-            <JFXButton fx:id="fiveBtn" onAction="#classFive" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: lightgray; -fx-border-color: black;" text="Class 5" />
          </children>
       </VBox>
    </left>
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXComboBox fx:id="weekCombo" promptText="Week 21">
-               <HBox.margin>
-                  <Insets left="5.0" top="5.0" />
-               </HBox.margin>
-            </JFXComboBox>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0">
+            <VBox alignment="TOP_CENTER" prefHeight="266.0" prefWidth="354.0" spacing="20.0">
                <children>
                   <Label text="Date">
                      <font>
@@ -78,18 +78,9 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="dateLbl1" text="04/05/2018">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="dateLbl2" text="04/05/2018" />
-                  <Label fx:id="dateLbl3" text="04/05/2018" />
-                  <Label fx:id="dateLbl4" text="04/05/2018" />
-                  <Label fx:id="dateLbl5" text="04/05/2018" />
                </children>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="119.0" spacing="20.0">
+            <VBox alignment="TOP_CENTER" prefHeight="266.0" prefWidth="435.0" spacing="20.0">
                <children>
                   <Label text="Time">
                      <font>
@@ -99,18 +90,9 @@
                         <Insets top="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="timeLbl1" text="9:00am - 11:30am">
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="timeLbl2" text="9:00am - 11:30am" />
-                  <Label fx:id="timeLbl3" text="9:00am - 11:30am" />
-                  <Label fx:id="timeLbl4" text="9:00am - 11:30am" />
-                  <Label fx:id="timeLbl5" text="9:00am - 11:30am" />
                </children>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="311.0" prefWidth="154.0" spacing="20.0">
+            <VBox alignment="TOP_CENTER" prefHeight="266.0" prefWidth="383.0" spacing="20.0">
                <children>
                   <Label text="Status">
                      <font>
@@ -119,39 +101,6 @@
                      <VBox.margin>
                         <Insets top="5.0" />
                      </VBox.margin>
-                  </Label>
-                  <Label text="Absent" textFill="RED">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="20.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label text="Absent" textFill="RED">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <Label text="Present" textFill="#229e35">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
-                  </Label>
-                  <HBox alignment="TOP_CENTER" prefHeight="10.0" prefWidth="179.0">
-                     <children>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="76.0" text="Absent">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="group5" />
-                           </toggleGroup>
-                        </JFXRadioButton>
-                        <JFXRadioButton prefHeight="21.0" prefWidth="72.0" text="Present" toggleGroup="$group5" />
-                     </children>
-                  </HBox>
-                  <Label text="Not yet active">
-                     <font>
-                        <Font name="Arial Bold" size="15.0" />
-                     </font>
                   </Label>
                </children>
             </VBox>
@@ -166,7 +115,7 @@
                   <Insets left="120.0" />
                </HBox.margin>
             </JFXButton>
-            <Label fx:id="classLbl" text="Absence over class: 20 %">
+            <Label fx:id="classLbl" text="Absence over class: ">
                <HBox.margin>
                   <Insets left="250.0" />
                </HBox.margin>

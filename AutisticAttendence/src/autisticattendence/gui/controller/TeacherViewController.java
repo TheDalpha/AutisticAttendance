@@ -124,30 +124,6 @@ public class TeacherViewController implements Initializable {
     }
 
     @FXML
-    private void classOne(ActionEvent event) {
-    }
-
-    @FXML
-    private void classTwo(ActionEvent event) {
-    }
-
-    @FXML
-    private void classThree(ActionEvent event) {
-    }
-
-    @FXML
-    private void classFour(ActionEvent event) {
-    }
-
-    @FXML
-    private void classFive(ActionEvent event) {
-    }
-
-    @FXML
-    private void submit(ActionEvent event) {
-    }
-
-    @FXML
     private void logOut(ActionEvent event) throws IOException {
         Stage stage1 = (Stage) logOut.getScene().getWindow();
         stage1.close();
