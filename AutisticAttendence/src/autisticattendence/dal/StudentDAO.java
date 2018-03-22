@@ -25,7 +25,7 @@ public class StudentDAO {
     
     private DataBaseConnector dbConnector;
     
-    public StudentDAO() throws IOException {
+    public StudentDAO(){
         dbConnector = new DataBaseConnector();
     }
     
@@ -51,7 +51,8 @@ public class StudentDAO {
                 allStudents.add(student);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(TeacherDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.print(ex);
+            return null;
         }
         return allStudents;
     }

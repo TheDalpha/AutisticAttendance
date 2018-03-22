@@ -93,6 +93,7 @@ public class TeacherViewController implements Initializable {
     private ToggleGroup group5;
     @FXML
     private JFXButton logOut;
+    private Teacher teacher;
     
 
     /**
@@ -114,6 +115,13 @@ public class TeacherViewController implements Initializable {
         
         
     }    
+    
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+        String studentFName = teacher.getFirstName();
+        String studentLName = teacher.getLastName(); 
+        nameLbl.setText(studentFName + " " + studentLName);
+    }
 
     @FXML
     private void classOne(ActionEvent event) {

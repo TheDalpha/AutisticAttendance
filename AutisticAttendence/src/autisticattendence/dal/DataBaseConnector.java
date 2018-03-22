@@ -16,15 +16,13 @@ import java.sql.Connection;
  */
 public class DataBaseConnector
 {
-    private SQLServerDataSource dataSource;
+    private SQLServerDataSource dataSource = new SQLServerDataSource();
 
     /*
     * sets the database sources.
     */
-    public DataBaseConnector() throws IOException
-    {
-        dataSource = new SQLServerDataSource();
-
+    public DataBaseConnector()
+    {;
         dataSource.setServerName("EASV-DB2");
         dataSource.setPortNumber(1433);
         dataSource.setDatabaseName("AutisticAttendance");

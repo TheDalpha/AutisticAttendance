@@ -18,7 +18,7 @@ public class TeacherManager
 {
     TeacherDAO tdao;
     
-    public TeacherManager() throws IOException {
+    public TeacherManager() {
         this.tdao = new TeacherDAO();
     }
     
