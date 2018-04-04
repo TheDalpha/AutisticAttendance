@@ -8,6 +8,7 @@ package autisticattendence.gui.controller;
 import autisticattendence.be.Student;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXRadioButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,49 +31,23 @@ public class StudentViewController implements Initializable
 {
 
     @FXML
-    private JFXButton oneBtn;
-    @FXML
-    private JFXButton twoBtn;
-    @FXML
-    private JFXButton threeBtn;
-    @FXML
-    private JFXButton fourBtn;
-    @FXML
-    private JFXButton fiveBtn;
-    @FXML
-    private Label dateLbl1;
-    @FXML
-    private Label dateLbl2;
-    @FXML
-    private Label dateLbl3;
-    @FXML
-    private Label dateLbl4;
-    @FXML
-    private Label dateLbl5;
-    @FXML
-    private Label timeLbl1;
-    @FXML
-    private Label timeLbl2;
-    @FXML
-    private Label timeLbl3;
-    @FXML
-    private Label timeLbl4;
-    @FXML
-    private Label timeLbl5;
-    @FXML
-    private ToggleGroup group5;
-    @FXML
-    private JFXComboBox<?> weekCombo;
-    @FXML
     private Label nameLbl;
     @FXML
     private Label totalLbl;
-    @FXML
-    private Label classLbl;
     
     private Student student;
     @FXML
     private JFXButton logOut;
+    @FXML
+    private Label dateLbl;
+    @FXML
+    private JFXRadioButton presentRbtn;
+    @FXML
+    private ToggleGroup grp;
+    @FXML
+    private JFXRadioButton absentRbtn;
+    @FXML
+    private JFXButton submitBtn;
 
     /**
      * Initializes the controller class.
@@ -99,35 +74,6 @@ public class StudentViewController implements Initializable
        totalLbl.setText("Total Absence: ");
     }
 
-    @FXML
-    private void classOne(ActionEvent event)
-    {
-        
-    }
-
-    @FXML
-    private void classTwo(ActionEvent event)
-    {
-        
-    }
-
-    @FXML
-    private void classThree(ActionEvent event)
-    {
-        
-    }
-
-    @FXML
-    private void classFour(ActionEvent event)
-    {
-        
-    }
-
-    @FXML
-    private void classFive(ActionEvent event)
-    {
-        
-    }
 
     @FXML
     private void logOut(ActionEvent event) throws IOException {
