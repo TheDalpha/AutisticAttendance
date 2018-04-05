@@ -22,6 +22,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
@@ -37,63 +38,19 @@ public class TeacherViewController implements Initializable {
     
     private TeacherViewModel tvm;
 
-    @FXML
-    private TableView<Teacher> tableStudent;
-    @FXML
     private TableColumn<Teacher, String> studentClmName;
-    @FXML
     private TableColumn<Teacher, String> studentClmAbsence;
     @FXML
     private Label nameLbl;
     @FXML
-    private Label totalLbl;
-    @FXML
-    private JFXButton oneBtn;
-    @FXML
-    private JFXButton twoBtn;
-    @FXML
-    private JFXButton threeBtn;
-    @FXML
-    private JFXButton fourBtn;
-    @FXML
-    private JFXButton fiveBtn;
-    @FXML
     private Label classLbl;
-    @FXML
-    private JFXComboBox<?> weekCombo;
-    @FXML
-    private Label dateLbl1;
-    @FXML
-    private Label dateLbl2;
-    @FXML
-    private Label dateLbl3;
-    @FXML
-    private Label dateLbl4;
-    @FXML
-    private Label dateLbl5;
-    @FXML
-    private Label timeLbl1;
-    @FXML
-    private Label timeLbl2;
-    @FXML
-    private Label timeLbl3;
-    @FXML
-    private Label timeLbl4;
-    @FXML
-    private Label timeLbl5;
-    @FXML
-    private ToggleGroup group1;
-    @FXML
-    private ToggleGroup group2;
-    @FXML
-    private ToggleGroup group3;
-    @FXML
-    private ToggleGroup group4;
-    @FXML
-    private ToggleGroup group5;
     @FXML
     private JFXButton logOut;
     private Teacher teacher;
+    @FXML
+    private ListView<?> todayListView;
+    @FXML
+    private ListView<?> overallListView;
     
 
     /**
