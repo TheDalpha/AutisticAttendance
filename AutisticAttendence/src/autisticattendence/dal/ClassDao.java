@@ -9,11 +9,11 @@ package autisticattendence.dal;
  *
  * @author Captain
  */
-public class ClassDao {
+public class classDAO {
     
     private DataBaseConnector dbConnector;
     
-    public ClassDao(){
+    public classDAO(){
         dbConnector = new DataBaseConnector();
     }
     
