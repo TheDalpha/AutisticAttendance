@@ -3,8 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -50,28 +49,45 @@
                               </Label>
                            </children>
                         </VBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="434.0" prefWidth="550.0">
+                        <VBox alignment="TOP_CENTER" prefHeight="434.0" prefWidth="548.0">
                            <children>
-                              <Label alignment="TOP_CENTER" text="&lt;Class name overview&gt;">
+                              <Label fx:id="classLbl" text="&lt;Class&gt;">
                                  <font>
-                                    <Font name="Arial Bold" size="18.0" />
+                                    <Font name="Arial Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <Label alignment="TOP_CENTER" text="Students">
-                                 <font>
-                                    <Font name="Arial Bold" size="18.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <TableView fx:id="tableStudent" prefHeight="384.0" prefWidth="525.0" style="-fx-background-color: darkgray; -fx-border-color: black;">
-                                <columns>
-                                  <TableColumn fx:id="studentClmName" prefWidth="278.0" style="-fx-background-color: darkgray;" text="Name" />
-                                  <TableColumn fx:id="studentClmAbsence" minWidth="0.0" prefWidth="102.0" style="-fx-background-color: darkgray;" text="Absence" />
-                                    <TableColumn fx:id="studentClmAbsence1" prefWidth="166.0" style="-fx-background-color: darkgray;" text="Total absence" />
-                                </columns>
-                              </TableView>
+                              <HBox prefHeight="441.0" prefWidth="547.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="407.0" prefWidth="274.0">
+                                       <children>
+                                          <Label text="Attendence for today">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ListView fx:id="todayListView" prefHeight="432.0" prefWidth="273.0" style="-fx-background-color: darkgray; -fx-border-color: gray;">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </ListView>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="407.0" prefWidth="275.0">
+                                       <children>
+                                          <Label text="Overall">
+                                             <font>
+                                                <Font name="Arial Bold" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <ListView fx:id="overallListView" prefHeight="400.0" prefWidth="274.0" style="-fx-background-color: darkgray; -fx-border-color: gray;">
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </ListView>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
                            </children>
                         </VBox>
                      </children>

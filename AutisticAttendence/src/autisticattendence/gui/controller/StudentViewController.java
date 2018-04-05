@@ -64,7 +64,7 @@ public class StudentViewController implements Initializable
     @FXML
     private Label regLbl;
     @FXML
-    private BarChart<?, ?> barChart;
+    private BarChart<String, Number> barChart;
     @FXML
     private NumberAxis nrAxis;
     @FXML
