@@ -25,6 +25,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
@@ -59,6 +63,14 @@ public class StudentViewController implements Initializable
     private JFXDatePicker datePicker;
     @FXML
     private Label regLbl;
+    @FXML
+    private BarChart<?, ?> barChart;
+    @FXML
+    private NumberAxis nrAxis;
+    @FXML
+    private CategoryAxis daysAxis;
+    @FXML
+    private PieChart pieChart;
 
     /**
      * Initializes the controller class.
