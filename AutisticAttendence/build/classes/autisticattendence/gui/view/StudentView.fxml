@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="628.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autisticattendence.gui.controller.StudentViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="646.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autisticattendence.gui.controller.StudentViewController">
    <top>
       <HBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
             <VBox alignment="CENTER" prefHeight="87.0" prefWidth="666.0">
                <children>
-                  <Pane prefHeight="27.0" prefWidth="628.0" style="-fx-background-color: Grey;">
+                  <Pane prefHeight="35.0" prefWidth="646.0" style="-fx-background-color: Grey;">
                      <children>
                         <Label alignment="CENTER" layoutX="282.0" layoutY="-9.0" prefHeight="37.0" prefWidth="83.0" text="EASV">
                            <font>
                               <Font name="Rockwell Extra Bold" size="19.0" />
                            </font>
                         </Label>
-                        <JFXButton fx:id="logOut" layoutX="562.0" onAction="#logOut" prefHeight="0.0" prefWidth="66.0" style="-fx-background-color: grey;" text="Logout">
+                        <JFXButton fx:id="logOut" layoutX="569.0" onAction="#logOut" prefHeight="0.0" prefWidth="66.0" style="-fx-background-color: grey;" text="Logout">
                            <font>
                               <Font size="9.0" />
                            </font>
@@ -32,17 +37,35 @@
                         <Insets />
                      </opaqueInsets>
                   </Pane>
-                  <VBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="626.0" />
-                  <Label fx:id="nameLbl" alignment="CENTER" contentDisplay="CENTER" text="name">
-                     <font>
-                        <Font name="Arial Bold" size="17.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="totalLbl" text="Total Absence: ">
-                     <font>
-                        <Font size="17.0" />
-                     </font>
-                  </Label>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="646.0" style="-fx-border-color: gray;">
+                     <children>
+                        <ImageView fitHeight="69.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@profile-default-male.png" />
+                           </image>
+                        </ImageView>
+                        <VBox alignment="CENTER_LEFT" prefHeight="44.0" prefWidth="368.0">
+                           <children>
+                              <Label fx:id="nameLbl" alignment="CENTER" contentDisplay="CENTER" text="name">
+                                 <font>
+                                    <Font name="Arial Bold" size="17.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="totalLbl" text="Total Absence: ">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets left="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
                <opaqueInsets>
                   <Insets />
@@ -51,76 +74,34 @@
          </children>
       </HBox>
    </top>
-   <left>
-      <VBox alignment="TOP_CENTER" prefHeight="210.0" prefWidth="100.0" spacing="5.0" style="-fx-border-color: dark gray;" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Classes">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="5.0" />
-               </VBox.margin>
-            </Label>
-         </children>
-      </VBox>
-   </left>
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="266.0" prefWidth="354.0" spacing="20.0">
+            <VBox prefHeight="140.0" prefWidth="646.0">
                <children>
-                  <Label text="Date">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="266.0" prefWidth="435.0" spacing="20.0">
-               <children>
-                  <Label text="Time">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                  </Label>
-               </children>
-            </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="266.0" prefWidth="383.0" spacing="20.0">
-               <children>
-                  <Label text="Status">
-                     <font>
-                        <Font name="Arial Bold" size="18.0" />
-                     </font>
-                     <VBox.margin>
-                        <Insets top="5.0" />
-                     </VBox.margin>
-                  </Label>
+                  <VBox alignment="TOP_CENTER" prefHeight="129.0" prefWidth="646.0" spacing="20.0" style="-fx-border-color: gray;">
+                     <children>
+                        <JFXDatePicker fx:id="datePicker" />
+                        <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="646.0">
+                           <children>
+                              <JFXRadioButton fx:id="presentRbtn" text="Present">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="grp" />
+                                 </toggleGroup>
+                              </JFXRadioButton>
+                              <JFXRadioButton fx:id="absentRbtn" text="Absent" toggleGroup="$grp" />
+                           </children>
+                        </HBox>
+                        <Label fx:id="regLbl" text="Label" />
+                        <JFXButton fx:id="submitBtn" onAction="#submit" style="-fx-border-color: gray;" text="Submit" />
+                     </children>
+                  </VBox>
                </children>
             </VBox>
          </children>
       </HBox>
    </center>
    <bottom>
-      <HBox alignment="CENTER_LEFT" prefHeight="58.0" prefWidth="628.0" BorderPane.alignment="CENTER">
-         <children>
-            <JFXButton onAction="#submit" style="-fx-border-color: gray;" text="Submit">
-               <HBox.margin>
-                  <Insets left="120.0" />
-               </HBox.margin>
-            </JFXButton>
-            <Label fx:id="classLbl" text="Absence over class: ">
-               <HBox.margin>
-                  <Insets left="250.0" />
-               </HBox.margin>
-            </Label>
-         </children>
-      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="55.0" prefWidth="632.0" style="-fx-border-color: gray;" BorderPane.alignment="CENTER" />
    </bottom>
 </BorderPane>

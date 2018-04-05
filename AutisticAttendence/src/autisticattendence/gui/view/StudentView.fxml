@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="646.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autisticattendence.gui.controller.StudentViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="646.0" style="-fx-background-color: darkgray;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="autisticattendence.gui.controller.StudentViewController">
    <top>
       <HBox alignment="TOP_CENTER" prefHeight="87.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -80,14 +81,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="129.0" prefWidth="646.0" spacing="20.0" style="-fx-border-color: gray;">
                      <children>
-                        <Label fx:id="dateLbl" text="&lt;Date&gt;">
-                           <VBox.margin>
-                              <Insets top="5.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="Arial Bold" size="18.0" />
-                           </font>
-                        </Label>
+                        <JFXDatePicker fx:id="datePicker" />
                         <HBox alignment="TOP_CENTER" prefHeight="20.0" prefWidth="646.0">
                            <children>
                               <JFXRadioButton fx:id="presentRbtn" text="Present">
@@ -98,6 +92,7 @@
                               <JFXRadioButton fx:id="absentRbtn" text="Absent" toggleGroup="$grp" />
                            </children>
                         </HBox>
+                        <Label fx:id="regLbl" text="Label" />
                         <JFXButton fx:id="submitBtn" onAction="#submit" style="-fx-border-color: gray;" text="Submit" />
                      </children>
                   </VBox>

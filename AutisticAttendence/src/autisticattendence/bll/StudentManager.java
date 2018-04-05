@@ -8,6 +8,7 @@ package autisticattendence.bll;
 import autisticattendence.be.Student;
 import autisticattendence.dal.StudentDAO;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -24,5 +25,9 @@ public class StudentManager {
     
     public List<Student> getAllStudents() {
         return sdao.getAllStudents();
+    }
+
+    public void updateStudent(Student student) {
+        sdao.updateStudent(student);
     }
 }

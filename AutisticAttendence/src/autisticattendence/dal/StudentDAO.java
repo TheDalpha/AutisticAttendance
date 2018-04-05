@@ -46,8 +46,8 @@ public class StudentDAO {
                 student.setAddress(rs.getString("address"));
                 student.setUsername(rs.getString("username"));
                 student.setPassword(rs.getString("password"));
-                student.setAbsence(rs.getInt("Absence"));
-                
+                student.setAbsencePercent(rs.getInt("AbsencePercent"));
+                student.setStudentAbsenceDays(rs.getInt("studentAbsenceDays"));
                 allStudents.add(student);
             }
         } catch (SQLException ex) {
@@ -55,6 +55,38 @@ public class StudentDAO {
             return null;
         }
         return allStudents;
+    }
+
+    public void updateStudent(Student student) {
+        String sql = "UPDATE Student "
+                + "SET firstName = ?, "
+                + " lastName = ?, "
+                + " mail = ?, "
+                + " phone = ?, "
+                + " address = ?, "
+                + " password = ?, "
+                + " username = ?, "
+                + " absencePercent = ?, "
+                + " studentAbsenceDays = ? "
+                + " WHERE studentId = ? ;";
+        try (Connection con = dbConnector.getConnection())
+        {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, student.getFirstName());
+            ps.setString(2, student.getLastName());
+            ps.setString(3, student.getEmail());
+            ps.setInt(4, student.getPhoneNr());
+            ps.setString(5, student.getAddress());
+            ps.setString(6, student.getPassword());
+            ps.setString(7, student.getUsername());
+            ps.setInt(8, student.getAbsencePercent());
+            ps.setInt(9, student.getStudentAbsenceDays());
+            ps.setInt(10, student.getStudentId());
+
+            ps.executeUpdate();
+        }catch (SQLException ex) {
+            System.err.print(ex);
+        }
     }
     
 }

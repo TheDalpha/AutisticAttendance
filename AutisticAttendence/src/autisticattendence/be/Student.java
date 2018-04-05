@@ -13,9 +13,19 @@ public class Student extends Person{
     
     private int studentId;
 
-    private int absence;
+    private int absencePercent;
 
+    private int studentAbsenceDays;
+    
     private String Address;
+
+    public int getStudentAbsenceDays() {
+        return studentAbsenceDays;
+    }
+
+    public void setStudentAbsenceDays(int studentAbsenceDays) {
+        this.studentAbsenceDays = studentAbsenceDays;
+    }
 
     /**
      * Get the value of Address
@@ -40,8 +50,8 @@ public class Student extends Person{
      *
      * @return the value of absence
      */
-    public int getAbsence() {
-        return absence;
+    public int getAbsencePercent() {
+        return absencePercent;
     }
 
     /**
@@ -49,8 +59,8 @@ public class Student extends Person{
      *
      * @param absence new value of absence
      */
-    public void setAbsence(int absence) {
-        this.absence = absence;
+    public void setAbsencePercent(int absencePercent) {
+        this.absencePercent = absencePercent;
     }
 
     /**
