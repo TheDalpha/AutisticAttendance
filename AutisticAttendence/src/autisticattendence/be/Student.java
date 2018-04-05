@@ -5,6 +5,8 @@
  */
 package autisticattendence.be;
 
+import javafx.scene.image.ImageView;
+
 /**
  *
  * @author Jesper Riis
@@ -18,6 +20,10 @@ public class Student extends Person{
     private int studentAbsenceDays;
     
     private String Address;
+    
+    private String studentImg;
+    
+    private ImageView image;
 
     public int getStudentAbsenceDays() {
         return studentAbsenceDays;
@@ -80,5 +86,25 @@ public class Student extends Person{
     public void setStudentId(int studentId) {
         this.studentId = studentId;
     }
+
+    public String getStudentImg() {
+        return studentImg;
+    }
+
+    public void setStudentImg(String studentImg) {
+        this.studentImg = studentImg;
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void setImage(ImageView image) {
+        this.image = image;
+    }
+
+    
+    
+    
 
 }

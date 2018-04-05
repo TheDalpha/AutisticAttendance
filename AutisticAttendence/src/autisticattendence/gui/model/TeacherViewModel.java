@@ -5,6 +5,7 @@
  */
 package autisticattendence.gui.model;
 
+import autisticattendence.be.Class;
 import autisticattendence.be.Teacher;
 import autisticattendence.bll.TeacherManager;
 import java.io.IOException;
@@ -20,11 +21,13 @@ public class TeacherViewModel
 {
     TeacherManager tm;
     public ObservableList<Teacher> teacherList;
+    public ObservableList<Class> classList;
     private static TeacherViewModel instance;
     
     public TeacherViewModel() throws IOException {
         this.tm = new TeacherManager();
         teacherList = FXCollections.observableArrayList();
+        classList = FXCollections.observableArrayList();
     }
     
     public ObservableList<Teacher> getTeachers() {
@@ -43,6 +46,15 @@ public class TeacherViewModel
             instance = new TeacherViewModel();
         }
         return instance;
+    }
+    
+    public void loadClasses() {
+        classList.clear();
+        classList.addAll(tm.getAllClasses());
+    }
+    
+    public ObservableList<Class> getClasses() {
+        return classList;
     }
     
     

@@ -5,12 +5,16 @@
  */
 package autisticattendence.gui.controller;
 
+import autisticattendence.be.Class;
+import autisticattendence.be.Student;
 import autisticattendence.be.Teacher;
+import autisticattendence.gui.model.StudentViewModel;
 import autisticattendence.gui.model.TeacherViewModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +31,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldListCell;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -37,6 +43,7 @@ import javafx.stage.Stage;
 public class TeacherViewController implements Initializable {
     
     private TeacherViewModel tvm;
+    private StudentViewModel svm;
 
     private TableColumn<Teacher, String> studentClmName;
     private TableColumn<Teacher, String> studentClmAbsence;
@@ -48,9 +55,25 @@ public class TeacherViewController implements Initializable {
     private JFXButton logOut;
     private Teacher teacher;
     @FXML
-    private ListView<?> todayListView;
+    private TableColumn<Class, String> classClm;
     @FXML
-    private ListView<?> overallListView;
+    private TableView<Student> todayTableView;
+    @FXML
+    private TableColumn<Student, ImageView> imageClm;
+    @FXML
+    private TableColumn<Student, String> nameClm;
+    @FXML
+    private TableColumn<Student, ?> statusClm;
+    @FXML
+    private TableView<Student> overallTableView;
+    @FXML
+    private TableColumn<?, ?> imageClm2;
+    @FXML
+    private TableColumn<?, ?> nameClm2;
+    @FXML
+    private TableColumn<?, ?> absentClm;
+    @FXML
+    private TableView<Class> classTableView;
     
 
     /**
@@ -60,16 +83,24 @@ public class TeacherViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         try {
             tvm = TeacherViewModel.getInstance();
+            svm = StudentViewModel.getInstance();
         } catch (IOException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        studentClmName.setCellValueFactory(
-                new PropertyValueFactory("name"));
-        studentClmAbsence.setCellValueFactory(
-                new PropertyValueFactory("absence"));
+        classTableView.setItems(tvm.getClasses());
+        classClm.setCellValueFactory(
+                new PropertyValueFactory("className"));
+        tvm.loadClasses();  
         
-        
+        svm.loadStudents();
+        todayTableView.setItems(svm.getAllStudents());
+        imageClm.setCellValueFactory(
+                new PropertyValueFactory("image"));
+        nameClm.setCellValueFactory(
+                new PropertyValueFactory("firstName" + "lastName"));
         
     }    
     

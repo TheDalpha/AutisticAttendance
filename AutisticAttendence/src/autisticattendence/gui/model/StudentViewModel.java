@@ -28,6 +28,7 @@ public class StudentViewModel {
         AttendanceDayManager attDay;
         Student student;
         ObservableList<AttendanceDay> atd;
+        ObservableList<Student> studentList;
 
     public StudentViewModel() {
         stdMan = new StudentManager();
@@ -36,6 +37,7 @@ public class StudentViewModel {
         studentAbsenceDays = student.getStudentAbsenceDays();
         studentAbsencePercents = student.getAbsencePercent();
         this.atd = FXCollections.observableArrayList(attDay.getStudentDays(student.getStudentId()));
+        studentList = FXCollections.observableArrayList();
     }
     
     
@@ -87,5 +89,14 @@ public class StudentViewModel {
 
     public void updateDay(AttendanceDay day) {
         attDay.updateDay(day);
+    }
+    
+    public ObservableList<Student> getAllStudents() {
+        return studentList;
+    }
+    
+    public void loadStudents() {
+        studentList.clear();
+        studentList.addAll(stdMan.getAllStudents());
     }
 }

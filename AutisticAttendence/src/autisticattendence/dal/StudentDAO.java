@@ -48,6 +48,7 @@ public class StudentDAO {
                 student.setPassword(rs.getString("password"));
                 student.setAbsencePercent(rs.getInt("AbsencePercent"));
                 student.setStudentAbsenceDays(rs.getInt("studentAbsenceDays"));
+                student.setStudentImg(rs.getString("fileLink"));
                 allStudents.add(student);
             }
         } catch (SQLException ex) {
@@ -67,7 +68,8 @@ public class StudentDAO {
                 + " password = ?, "
                 + " username = ?, "
                 + " absencePercent = ?, "
-                + " studentAbsenceDays = ? "
+                + " studentAbsenceDays = ?, "
+                + " fileLink = ? "
                 + " WHERE studentId = ? ;";
         try (Connection con = dbConnector.getConnection())
         {
@@ -81,7 +83,8 @@ public class StudentDAO {
             ps.setString(7, student.getUsername());
             ps.setInt(8, student.getAbsencePercent());
             ps.setInt(9, student.getStudentAbsenceDays());
-            ps.setInt(10, student.getStudentId());
+            ps.setString(10, student.getStudentImg());
+            ps.setInt(11, student.getStudentId());
 
             ps.executeUpdate();
         }catch (SQLException ex) {
