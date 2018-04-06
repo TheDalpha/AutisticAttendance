@@ -125,6 +125,33 @@ public class TeacherViewController implements Initializable {
         svm.loadStudents();
         
         overallTableView.getSortOrder().add(AbsentClm21);
+        
+//        imageClm2.setCellValueFactory(
+//        new PropertyValueFactory("filelink"));
+//        //       Image image = new Image("profile-default-male.png");
+//       TableColumn<Student, ImageView> setCellValueFactory = new TableColumn();
+//       setCellValueFactory.getColumns();
+//       setCellValueFactory.cellValueFactoryProperty();
+//       final ImageView imageview = new ImageView();
+//       imageview.setFitHeight(50);
+//       imageview.setFitWidth(50);
+//       
+//
+//       //Set up the Table
+//       TableCell<Student, Image> cell = new TableCell<Student, Image>() {
+//           public void updateItem(Image item, boolean empty) {
+//             if (item != null) {
+//                  imageview.setImage(item);
+//             }
+//           }
+//        };
+//        // Attach the imageview to the cell
+//        cell.setGraphic(imageview);
+//        return cell;
+//   
+// 
+        
+        
     }    
     
     public void setTeacher(Teacher teacher) {
