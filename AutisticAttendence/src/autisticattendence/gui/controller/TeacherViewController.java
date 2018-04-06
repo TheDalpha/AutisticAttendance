@@ -94,7 +94,12 @@ public class TeacherViewController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        tvm.updateTeacher(tvm.getTeacher());
+        
+            tvm.updateTeacher(tvm.getTeacher());
+        
+        
+            
+        
         classTableView.setItems(tvm.getClasses());
         classClm.setCellValueFactory(
                 new PropertyValueFactory("className")); 
@@ -149,7 +154,8 @@ public class TeacherViewController implements Initializable {
     @FXML
     private void getSelectedClass(MouseEvent event) {
         
-        todayTableView.setItems(FXCollections.observableArrayList(classTableView.getSelectionModel().getSelectedItem().getClassList()));
+        overallTableView.setItems(FXCollections.observableArrayList(classTableView.getSelectionModel().getSelectedItem().getClassList()));
+        classLbl.setText(classTableView.getSelectionModel().getSelectedItem().getClassName());
     }
 
     
