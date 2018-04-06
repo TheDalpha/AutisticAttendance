@@ -74,7 +74,6 @@ public class TeacherViewModel
 
     public void loadClassesTeachers() {
         classList.clear();
-        tm.getAllClasses();
         classList.addAll(tm.getAllClassesTeachers());
     }
 

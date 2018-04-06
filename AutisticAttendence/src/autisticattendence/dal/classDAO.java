@@ -88,22 +88,21 @@ public class classDAO {
                 student.setAbsencePercent(rs.getInt("AbsencePercent"));
                 student.setStudentAbsenceDays(rs.getInt("studentAbsenceDays"));
                 student.setStudentImg(rs.getString("fileLink"));
-                student.setDidAttend(rs.getBoolean("didAttend"));
+                student.setDidAttend(rs.getString("didAttend"));
                 classes.setClassId(rs.getInt("classId"));
                 
                 // Goes through the list of all playlists and if a id on the list is the same as one in database
                 // it will get the song list from that specific playlist and add the song that is on the database.
-                for (int i = 0; i < allClasses.size(); i++) { 
-                    if(allClasses.get(i).getClassId() == classes.getClassId() ) 
+                for (int i = 0; i < allClassesTeacher.size(); i++) { 
+                    if(allClassesTeacher.get(i).getClassId() == classes.getClassId() ) 
                     {
-                        allClasses.get(i).getClassList().add(student);
+                        allClassesTeacher.get(i).getClassList().add(student);
 //                        allClasses.get(i).getClassListT().add(teacher);
                     }
                 }
                 
                     
             }
-               allClasses.clear();
             } catch (SQLException ex) {
             Logger.getLogger(Class.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -131,15 +130,23 @@ public class classDAO {
                 classes.setClassId(rs.getInt("classId"));
                 classes.setClassName(rs.getString("className"));
                 for (int i = 0; i < allClasses.size(); i++) { 
-                    if(allClasses.get(i).getClassId() == classes.getClassId() && teacher.isLoggedIn() && !allClassesTeacher.contains(classes)) 
+                    if(allClasses.get(i).getClassId() == classes.getClassId() && teacher.isLoggedIn() == true) 
                     {
+                        if(allClassesTeacher.isEmpty()) {
                         allClassesTeacher.add(classes);
+                        } else
+                        for (int j = 0; j < allClassesTeacher.size(); j++) {
+                            if(allClassesTeacher.get(j).getClassId() != allClasses.get(i).getClassId()) {
+                                allClassesTeacher.add(classes);
+                            }
+                            
+                        }
                     }
                 }
                 
                     
             }
-               allClasses.clear();
+               
             } catch (SQLException ex) {
             Logger.getLogger(Class.class.getName()).log(Level.SEVERE, null, ex);
     }

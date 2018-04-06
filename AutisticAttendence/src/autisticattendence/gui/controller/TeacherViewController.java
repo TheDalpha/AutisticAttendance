@@ -96,17 +96,17 @@ public class TeacherViewController implements Initializable {
         classTableView.setItems(tvm.getClasses());
         classClm.setCellValueFactory(
                 new PropertyValueFactory("className")); 
-//        tvm.loadClasses();
-        tvm.loadClassesTeachers(); 
+        tvm.loadClasses();
+        tvm.loadClassesTeachers();
+        tvm.loadStudentsInClasses();
         todayTableView.setItems(svm.getAllStudents());
         imageClm.setCellValueFactory(
                 new PropertyValueFactory("fileLink"));
         nameClm.setCellValueFactory(
-                new PropertyValueFactory("firstName"));
+                new PropertyValueFactory("firstName"+"lastName"));
         statusClm.setCellValueFactory(
                 new PropertyValueFactory("DidAttend"));
-        svm.loadStudents();
-        tvm.loadStudentsInClasses();
+        //svm.loadStudents();
         
     }    
     

@@ -21,7 +21,7 @@ public class Student extends Person{
     
     private String Address;
     
-    private boolean didAttend;
+    private String didAttend;
     
     private String studentImg;
     
@@ -35,13 +35,14 @@ public class Student extends Person{
         this.studentAbsenceDays = studentAbsenceDays;
     }
 
-    public boolean isDidAttend() {
+    public String getDidAttend() {
         return didAttend;
     }
 
-    public void setDidAttend(boolean didAttend) {
+    public void setDidAttend(String didAttend) {
         this.didAttend = didAttend;
     }
+
 
     /**
      * Get the value of Address
