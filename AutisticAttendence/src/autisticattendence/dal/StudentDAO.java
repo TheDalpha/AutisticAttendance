@@ -83,7 +83,7 @@ public class StudentDAO {
             ps.setString(5, student.getAddress());
             ps.setString(6, student.getPassword());
             ps.setString(7, student.getUsername());
-            ps.setInt(8, student.getAbsencePercent());
+            ps.setDouble(8, student.getAbsencePercent());
             ps.setInt(9, student.getStudentAbsenceDays());
             ps.setString(10, student.getStudentImg());
             ps.setString(11, student.getDidAttend());

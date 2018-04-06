@@ -71,9 +71,9 @@
                                           </Label>
                                           <TableView fx:id="todayTableView" prefHeight="481.0" prefWidth="273.0" style="-fx-background-color: darkgray;">
                                             <columns>
-                                              <TableColumn fx:id="imageClm" prefWidth="90.0" style="-fx-background-color: darkgray;" />
-                                              <TableColumn fx:id="nameClm" prefWidth="123.0" style="-fx-background-color: darkgray;" text="d" />
-                                                <TableColumn fx:id="statusClm" prefWidth="59.0" style="-fx-background-color: darkgray;" />
+                                              <TableColumn fx:id="imageClm" prefWidth="71.0" style="-fx-background-color: darkgray;" />
+                                              <TableColumn fx:id="nameClm" prefWidth="124.0" style="-fx-background-color: darkgray;" />
+                                                <TableColumn fx:id="statusClm" prefWidth="77.0" style="-fx-background-color: darkgray;" />
                                             </columns>
                                              <VBox.margin>
                                                 <Insets top="10.0" />
@@ -90,9 +90,10 @@
                                           </Label>
                                           <TableView fx:id="overallTableView" prefHeight="467.0" prefWidth="274.0" style="-fx-background-color: darkgray;">
                                             <columns>
-                                              <TableColumn fx:id="imageClm2" prefWidth="88.0" style="-fx-background-color: darkgray;" />
-                                              <TableColumn fx:id="nameClm2" prefWidth="76.0" style="-fx-background-color: darkgray;" />
-                                                <TableColumn fx:id="absentClm" prefWidth="109.0" style="-fx-background-color: darkgray;" />
+                                              <TableColumn fx:id="imageClm2" prefWidth="61.0" style="-fx-background-color: darkgray;" />
+                                              <TableColumn fx:id="nameClm2" prefWidth="89.0" style="-fx-background-color: darkgray;" />
+                                                <TableColumn fx:id="lastNameClm" prefWidth="75.0" style="-fx-background-color: darkgray;" />
+                                                <TableColumn fx:id="AbsentClm21" prefWidth="48.0" style="-fx-background-color: darkgray;" />
                                             </columns>
                                              <VBox.margin>
                                                 <Insets top="10.0" />

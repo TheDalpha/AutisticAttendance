@@ -23,7 +23,7 @@ public class StudentViewModel {
     
         private static StudentViewModel instance;
         private int studentAbsenceDays;
-        private int studentAbsencePercents;
+        private double studentAbsencePercents;
         StudentManager stdMan;
         AttendanceDayManager attDay;
         Student student;
@@ -79,7 +79,9 @@ public class StudentViewModel {
     }
 
     public void setStudentAbsencePercent(double studentAbsencePercent) {
-        student.setAbsencePercent((int) (studentAbsencePercent / atd.size() * 100));
+        student.setAbsencePercent(studentAbsencePercent / atd.size() * 100);
+        System.out.println(studentAbsencePercent);
+        System.out.println(atd.size());
         studentAbsencePercents = student.getAbsencePercent();
     }
 

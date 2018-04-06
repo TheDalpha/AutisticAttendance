@@ -86,16 +86,17 @@ public class StudentViewController implements Initializable
             Logger.getLogger(StudentViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
         datePicker.setValue(LocalDate.now());
-        regLbl.setVisible(false);
-        for (AttendanceDay day : svm.getAllStudentDays(svm.getStudent().getStudentId()))
-        {
-            if (day.getDateTime().equals(datePicker.getValue().toString())) {
-                submitBtn.setVisible(false);
-                regLbl.setVisible(true);
-                regLbl.setText("Attendance registred for today!");
-            }
-        }
+//        regLbl.setVisible(false);
+//        for (AttendanceDay day : svm.getAllStudentDays(svm.getStudent().getStudentId()))
+//        {
+//            if (day.getDateTime().equals(datePicker.getValue().toString())) {
+//                submitBtn.setVisible(false);
+//                regLbl.setVisible(true);
+//                regLbl.setText("Attendance registred for today!");
+//            }
+//        }
         totalLbl.setText("Total percent:" + svm.getStudent().getAbsencePercent());
+        svm.getatd().addAll(svm.getAllStudentDays(svm.getStudent().getStudentId()));
     }
 
     public void setStudent(Student student) {
@@ -111,7 +112,7 @@ public class StudentViewController implements Initializable
     @FXML
     private void submit(ActionEvent event)
     {
-       if (grp.getSelectedToggle().equals(presentRbtn)) {
+       if (grp.getSelectedToggle().equals(presentRbtn) && DoesDayExist() == false) {
             AttendanceDay day = new AttendanceDay();
             day.setDateTime(datePicker.getValue().toString());
             day.setBeenToSchool(true);
@@ -120,14 +121,15 @@ public class StudentViewController implements Initializable
             day.setDateNr(datePicker.getValue().toEpochDay());
             svm.getatd().add(day);
             svm.getStudent().setDidAttend("Present");
-            svm.setStudentAbsencePercent(svm.getStudent().getStudentAbsenceDays());
+            svm.getAllStudentDays(svm.getStudent().getStudentId());
+            svm.setStudentAbsencePercent(student.getStudentAbsenceDays());
             svm.updateStudent(svm.getStudent());
-            totalLbl.setText("Total percent:" + svm.getStudent().getAbsencePercent());
+            totalLbl.setText("Total percent:" + student.getAbsencePercent());
             svm.addDay(day);
-            submitBtn.setVisible(false);
-            regLbl.setVisible(true);
+//            submitBtn.setVisible(false);
+//            regLbl.setVisible(true);
             regLbl.setText("Attendance registred for today!");
-       } else if (grp.getSelectedToggle().equals(absentRbtn)) {
+       } else if (grp.getSelectedToggle().equals(absentRbtn) && DoesDayExist() == false) {
             AttendanceDay day = new AttendanceDay();
             day.setDateTime(datePicker.getValue().toString());
             day.setBeenToSchool(false);
@@ -137,54 +139,56 @@ public class StudentViewController implements Initializable
             day.setWeekDay(datePicker.getValue().getDayOfWeek().toString());
             svm.getatd().add(day);
             svm.getStudent().setDidAttend("Absent");
-            svm.setStudentAbsenceDays(svm.getStudent().getStudentAbsenceDays() + 1);
-            svm.setStudentAbsencePercent(svm.getStudent().getStudentAbsenceDays());
-            totalLbl.setText("Total percent:" + svm.getStudent().getAbsencePercent());
+            svm.getAllStudentDays(svm.getStudent().getStudentId());
+            svm.setStudentAbsenceDays(student.getStudentAbsenceDays() + 1);
+            svm.setStudentAbsencePercent(student.getStudentAbsenceDays());
+            totalLbl.setText("Total percent:" + student.getAbsencePercent());
             svm.updateStudent(svm.getStudent());
             svm.addDay(day);
-            submitBtn.setVisible(false);
-            regLbl.setVisible(true);
+//            submitBtn.setVisible(false);
+//            regLbl.setVisible(true);
             regLbl.setText("Attendance registred for today!");
        }
     }
     
-//     private boolean DoesDayExist()
-//    {
-//
-//        for (AttendanceDay day : svm.getAllStudentDays(svm.getStudent().getStudentId()))
-//        {
-//            if (day.getDateTime().equals(datePicker.getValue().toString()))
-//            {
-//                if (day.isBeenToSchool() == true)
-//                {
-//                    day.setBeenToSchool(false);
-//                    svm.setStudentAbsenceDays(svm.getStudent().getStudentAbsenceDays() + 1);
-//                    svm.setStudentAbsencePercent(svm.getStudent().getStudentAbsenceDays());
-//                    svm.updateDay(day);
-//                    svm.updateStudent(svm.getStudent());
-//                    System.out.println(svm.getStudent().getStudentAbsenceDays());
-//
-//                } else if (day.isBeenToSchool() == false)
-//                {
-//                    day.setBeenToSchool(true);
-//                    svm.setStudentAbsenceDays(svm.getStudent().getStudentAbsenceDays() - 1);
-//                    svm.setStudentAbsencePercent(svm.getStudent().getStudentAbsenceDays());
-//                    svm.updateDay(day);
-//                    svm.updateStudent(svm.getStudent());
-//
-//                }
-//                totalLbl.setText("Total percent:" + svm.getStudent().getAbsencePercent());
-//                return true;
-//            }
-//
-//        }
-//
-//        return false;
-//    }
+     private boolean DoesDayExist()
+    {
+
+        for (AttendanceDay day : svm.getAllStudentDays(svm.getStudent().getStudentId()))
+        {
+            if (day.getDateTime().equals(datePicker.getValue().toString()))
+            {
+                if (day.isBeenToSchool() == true)
+                {
+                    day.setBeenToSchool(false);
+                    svm.setStudentAbsenceDays(svm.getStudent().getStudentAbsenceDays() + 1);
+                    svm.setStudentAbsencePercent(svm.getStudent().getStudentAbsenceDays());
+                    svm.updateDay(day);
+                    svm.updateStudent(svm.getStudent());
+                    System.out.println(svm.getStudent().getStudentAbsenceDays());
+
+                } else if (day.isBeenToSchool() == false)
+                {
+                    day.setBeenToSchool(true);
+                    svm.setStudentAbsenceDays(svm.getStudent().getStudentAbsenceDays() - 1);
+                    svm.setStudentAbsencePercent(svm.getStudent().getStudentAbsenceDays());
+                    svm.updateDay(day);
+                    svm.updateStudent(svm.getStudent());
+
+                }
+                totalLbl.setText("Total percent:" + svm.getStudent().getAbsencePercent());
+                return true;
+            }
+
+        }
+
+        return false;
+    }
 
 
     @FXML
     private void logOut(ActionEvent event) throws IOException {
+        svm.updateStudent(student);
         Stage stage1 = (Stage) logOut.getScene().getWindow();
         stage1.close();
         

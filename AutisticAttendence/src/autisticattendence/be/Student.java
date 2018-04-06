@@ -5,6 +5,8 @@
  */
 package autisticattendence.be;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.image.ImageView;
 
 /**
@@ -15,7 +17,7 @@ public class Student extends Person{
     
     private int studentId;
 
-    private int absencePercent;
+    private double absencePercent;
 
     private int studentAbsenceDays;
     
@@ -26,6 +28,18 @@ public class Student extends Person{
     private String studentImg;
     
     private ImageView image;
+    
+    private ObservableList<AttendanceDay> atd;
+
+    public Student() {
+        this.atd = FXCollections.observableArrayList();
+    }
+    
+    
+
+    public ObservableList<AttendanceDay> getAtd() {
+        return atd;
+    }
 
     public int getStudentAbsenceDays() {
         return studentAbsenceDays;
@@ -67,7 +81,7 @@ public class Student extends Person{
      *
      * @return the value of absence
      */
-    public int getAbsencePercent() {
+    public double getAbsencePercent() {
         return absencePercent;
     }
 
@@ -76,7 +90,7 @@ public class Student extends Person{
      *
      * @param absence new value of absence
      */
-    public void setAbsencePercent(int absencePercent) {
+    public void setAbsencePercent(double absencePercent) {
         this.absencePercent = absencePercent;
     }
 

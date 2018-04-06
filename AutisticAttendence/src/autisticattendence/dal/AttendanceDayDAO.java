@@ -6,6 +6,7 @@
 package autisticattendence.dal;
 
 import autisticattendence.be.AttendanceDay;
+import autisticattendence.be.Teacher;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -61,7 +62,13 @@ public class AttendanceDayDAO {
 
             while (rs.next())
             {
-                days.add(getOneDay(rs));
+                AttendanceDay day = new AttendanceDay();
+                day.setStudentId(rs.getInt("studentId"));
+                day.setBeenToSchool(rs.getBoolean("beenToSchool"));
+                day.setDateNr(rs.getLong("dateNr"));
+                day.setDateTime(rs.getString("dateTime"));
+                day.setWeekDay(rs.getString("weekDay"));
+                days.add(day);
             }
         }catch (SQLException ex) {
             System.err.print(ex);

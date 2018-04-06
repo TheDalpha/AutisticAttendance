@@ -70,13 +70,15 @@ public class TeacherViewController implements Initializable {
     @FXML
     private TableView<Student> overallTableView;
     @FXML
-    private TableColumn<?, ?> imageClm2;
+    private TableColumn<Student, ImageView> imageClm2;
     @FXML
-    private TableColumn<?, ?> nameClm2;
-    @FXML
-    private TableColumn<?, ?> absentClm;
+    private TableColumn<Student, String> nameClm2;
     @FXML
     private TableView<Class> classTableView;
+    @FXML
+    private TableColumn<Student, String> lastNameClm;
+    @FXML
+    private TableColumn<Student, Integer> AbsentClm21;
     
 
     /**
@@ -99,14 +101,22 @@ public class TeacherViewController implements Initializable {
         tvm.loadClasses();
         tvm.loadClassesTeachers();
         tvm.loadStudentsInClasses();
-        todayTableView.setItems(svm.getAllStudents());
-        imageClm.setCellValueFactory(
-                new PropertyValueFactory("fileLink"));
-        nameClm.setCellValueFactory(
-                new PropertyValueFactory("firstName"+"lastName"));
-        statusClm.setCellValueFactory(
-                new PropertyValueFactory("DidAttend"));
+//        todayTableView.setItems(svm.getAllStudents());
+//        imageClm.setCellValueFactory(
+//                new PropertyValueFactory("fileLink"));
+//        nameClm.setCellValueFactory(
+//                new PropertyValueFactory("firstName"));
+//        statusClm.setCellValueFactory(
+//                new PropertyValueFactory("DidAttend"));
         //svm.loadStudents();
+        overallTableView.setItems(svm.getAllStudents());
+        nameClm2.setCellValueFactory(
+                new PropertyValueFactory("firstName"));
+        lastNameClm.setCellValueFactory(
+                new PropertyValueFactory("lastName"));
+        AbsentClm21.setCellValueFactory(
+                new PropertyValueFactory("absentPercent"));
+        svm.loadStudents();
         
     }    
     
