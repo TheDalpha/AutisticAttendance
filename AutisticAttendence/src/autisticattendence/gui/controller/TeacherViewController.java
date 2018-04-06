@@ -5,6 +5,7 @@
  */
 package autisticattendence.gui.controller;
 
+import autisticattendence.be.AttendanceDay;
 import autisticattendence.be.Class;
 import autisticattendence.be.Student;
 import autisticattendence.be.Teacher;
@@ -19,6 +20,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.DoubleProperty;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +35,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldListCell;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -63,7 +66,7 @@ public class TeacherViewController implements Initializable {
     @FXML
     private TableColumn<Student, String> nameClm;
     @FXML
-    private TableColumn<Student, ?> statusClm;
+    private TableColumn<Student, String> statusClm;
     @FXML
     private TableView<Student> overallTableView;
     @FXML
@@ -89,25 +92,28 @@ public class TeacherViewController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        tvm.updateTeacher(tvm.getTeacher());
         classTableView.setItems(tvm.getClasses());
         classClm.setCellValueFactory(
-                new PropertyValueFactory("className"));
-        tvm.loadClasses();  
-        
-        svm.loadStudents();
+                new PropertyValueFactory("className")); 
+//        tvm.loadClasses();
+        tvm.loadClassesTeachers(); 
         todayTableView.setItems(svm.getAllStudents());
         imageClm.setCellValueFactory(
-                new PropertyValueFactory("image"));
+                new PropertyValueFactory("fileLink"));
         nameClm.setCellValueFactory(
-                new PropertyValueFactory("firstName" + "lastName"));
+                new PropertyValueFactory("firstName"));
+        statusClm.setCellValueFactory(
+                new PropertyValueFactory("DidAttend"));
+        svm.loadStudents();
+        tvm.loadStudentsInClasses();
         
     }    
     
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
         String studentFName = teacher.getFirstName();
-        String studentLName = teacher.getLastName(); 
+        String studentLName = teacher.getLastName();
         nameLbl.setText(studentFName + " " + studentLName);
     }
 
@@ -124,6 +130,14 @@ public class TeacherViewController implements Initializable {
 
         stage.setScene(scene);
         stage.show();
+        tvm.getTeacher().setLoggedIn(false);
+        tvm.updateTeacher(tvm.getTeacher());
+    }
+
+    @FXML
+    private void getSelectedClass(MouseEvent event) {
+        
+        todayTableView.setItems(FXCollections.observableArrayList(classTableView.getSelectionModel().getSelectedItem().getClassList()));
     }
 
     

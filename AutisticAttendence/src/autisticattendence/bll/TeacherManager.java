@@ -34,4 +34,15 @@ public class TeacherManager
         return cdao.getAllClasses();
     }
     
+    public void getAllClassesStudents() {
+        cdao.getAllClassesStudents();
+    }
+    
+    public List<Class> getAllClassesTeachers() {
+       return cdao.getAllClassesTeacher();
+    }
+
+    public void updateTeacher(Teacher teacher) {
+        tdao.updateTeacher(teacher);
+    }
 }

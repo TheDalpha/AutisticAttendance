@@ -9,6 +9,7 @@ import autisticattendence.be.Student;
 import autisticattendence.be.Teacher;
 import autisticattendence.gui.model.LoginModel;
 import autisticattendence.gui.model.StudentViewModel;
+import autisticattendence.gui.model.TeacherViewModel;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -39,6 +40,7 @@ public class LoginViewController implements Initializable
 
     LoginModel loginModel;
     StudentViewModel stdModel;
+    TeacherViewModel tcModel;
     
     boolean teacher = false;
     boolean student = false;
@@ -58,6 +60,7 @@ public class LoginViewController implements Initializable
         loginModel = new LoginModel();
         try {
             stdModel = StudentViewModel.getInstance();
+            tcModel = TeacherViewModel.getInstance();
         } catch (SQLException ex) {
             Logger.getLogger(LoginViewController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
@@ -99,6 +102,8 @@ public class LoginViewController implements Initializable
         Teacher te = teachers.get(i);
             if (username.equals(te.getUsername()) && password.equals(te.getPassword()) && teacher == false) {
             teacher = true;
+            te.setLoggedIn(true);
+            tcModel.setTeacher(te);
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/autisticattendence/gui/view/TeacherView.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = (Stage) loginBtn.getScene().getWindow();

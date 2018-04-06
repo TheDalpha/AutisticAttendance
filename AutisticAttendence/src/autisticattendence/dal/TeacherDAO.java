@@ -44,6 +44,7 @@ public class TeacherDAO
                 teacher.setPhoneNr(rs.getInt("phone"));
                 teacher.setUsername(rs.getString("username"));
                 teacher.setPassword(rs.getString("password"));
+                teacher.setLoggedIn(rs.getBoolean("loggedIn"));
                 
                 allTeachers.add(teacher);
             }
@@ -52,6 +53,34 @@ public class TeacherDAO
             return null;
         }
         return allTeachers;
+    }
+
+    public void updateTeacher(Teacher teacher) {
+       String sql = "UPDATE Teacher "
+                + "SET firstName = ?, "
+                + " lastName = ?, "
+                + " mail = ?, "
+                + " phone = ?, "
+                + " username = ?, "
+                + " password = ?, "
+                + " loggedIn = ? "
+                + " WHERE teacherId = ? ;";
+        try (Connection con = dbConnector.getConnection())
+        {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, teacher.getFirstName());
+            ps.setString(2, teacher.getLastName());
+            ps.setString(3, teacher.getEmail());
+            ps.setInt(4, teacher.getPhoneNr());
+            ps.setString(5, teacher.getUsername());
+            ps.setString(6, teacher.getPassword());
+            ps.setBoolean(7, teacher.isLoggedIn());
+            ps.setInt(8, teacher.getTeacherId());
+
+            ps.executeUpdate();
+        }catch (SQLException ex) {
+            System.err.print(ex);
+        }
     }
     
 }

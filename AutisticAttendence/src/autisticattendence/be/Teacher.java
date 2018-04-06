@@ -13,6 +13,7 @@ public class Teacher extends Person
 {
     
         private int teacherId;
+        private boolean loggedIn;
 
     /**
      * Get the value of teacherId
@@ -30,6 +31,14 @@ public class Teacher extends Person
      */
     public void setTeacherId(int teacherId) {
         this.teacherId = teacherId;
+    }
+
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
     
 }

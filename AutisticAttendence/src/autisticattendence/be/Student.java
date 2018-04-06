@@ -21,6 +21,8 @@ public class Student extends Person{
     
     private String Address;
     
+    private boolean didAttend;
+    
     private String studentImg;
     
     private ImageView image;
@@ -31,6 +33,14 @@ public class Student extends Person{
 
     public void setStudentAbsenceDays(int studentAbsenceDays) {
         this.studentAbsenceDays = studentAbsenceDays;
+    }
+
+    public boolean isDidAttend() {
+        return didAttend;
+    }
+
+    public void setDidAttend(boolean didAttend) {
+        this.didAttend = didAttend;
     }
 
     /**

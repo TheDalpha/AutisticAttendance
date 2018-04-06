@@ -119,6 +119,7 @@ public class StudentViewController implements Initializable
             day.setWeekDay(datePicker.getValue().getDayOfWeek().toString());
             day.setDateNr(datePicker.getValue().toEpochDay());
             svm.getatd().add(day);
+            svm.getStudent().setDidAttend(true);
             svm.setStudentAbsencePercent(svm.getStudent().getStudentAbsenceDays());
             svm.updateStudent(svm.getStudent());
             totalLbl.setText("Total percent:" + svm.getStudent().getAbsencePercent());
@@ -135,6 +136,7 @@ public class StudentViewController implements Initializable
             day.setStudentId(svm.getStudent().getStudentId());
             day.setWeekDay(datePicker.getValue().getDayOfWeek().toString());
             svm.getatd().add(day);
+            svm.getStudent().setDidAttend(false);
             svm.setStudentAbsenceDays(svm.getStudent().getStudentAbsenceDays() + 1);
             svm.setStudentAbsencePercent(svm.getStudent().getStudentAbsenceDays());
             totalLbl.setText("Total percent:" + svm.getStudent().getAbsencePercent());

@@ -5,6 +5,9 @@
  */
 package autisticattendence.be;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Captain
@@ -13,6 +16,13 @@ public class Class {
     
     private int classId;
     private String className;
+    private final List<Student> classList;
+    private final List<Teacher> classListT;
+
+    public Class() {
+        this.classList = new ArrayList();
+        this.classListT = new ArrayList();
+    }
 
     /**
      * Get the value of className
@@ -49,6 +59,14 @@ public class Class {
     public void setClassId(int classId) {
         this.classId = classId;
     } 
+
+    public List<Student> getClassList() {
+        return classList;
+    }
+
+    public List<Teacher> getClassListT() {
+        return classListT;
+    }
     
     /**
      *
