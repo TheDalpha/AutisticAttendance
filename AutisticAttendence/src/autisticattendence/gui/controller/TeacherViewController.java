@@ -109,7 +109,7 @@ public class TeacherViewController implements Initializable {
 //        statusClm.setCellValueFactory(
 //                new PropertyValueFactory("DidAttend"));
         //svm.loadStudents();
-        
+        AbsentClm21.setSortType(TableColumn.SortType.DESCENDING);
         overallTableView.setItems(svm.getAllStudents());
         nameClm2.setCellValueFactory(
                 new PropertyValueFactory("firstName"));
@@ -118,7 +118,8 @@ public class TeacherViewController implements Initializable {
         AbsentClm21.setCellValueFactory(
                 new PropertyValueFactory("AbsencePercent"));
         svm.loadStudents();
-        AbsentClm21.setSortType(TableColumn.SortType.DESCENDING);
+        
+        overallTableView.getSortOrder().add(AbsentClm21);
     }    
     
     public void setTeacher(Teacher teacher) {
