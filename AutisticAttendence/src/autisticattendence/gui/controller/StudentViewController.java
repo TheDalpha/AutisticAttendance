@@ -16,9 +16,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,8 +33,12 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 /**
@@ -71,6 +79,14 @@ public class StudentViewController implements Initializable
     private CategoryAxis daysAxis;
     @FXML
     private PieChart pieChart;
+    @FXML
+    private TableView<AttendanceDay> daysTable;
+    @FXML
+    private TableColumn<AttendanceDay, String> dateClm;
+    @FXML
+    private TableColumn<AttendanceDay, String> absenceClm;
+    @FXML
+    private TableColumn<AttendanceDay, String> dayClm;
 
     /**
      * Initializes the controller class.
@@ -97,6 +113,14 @@ public class StudentViewController implements Initializable
 //        }
         totalLbl.setText("Total percent:" + svm.getStudent().getAbsencePercent());
         svm.getatd().addAll(svm.getAllStudentDays(svm.getStudent().getStudentId()));
+        
+        daysTable.setItems(svm.getatd());
+        dayClm.setCellValueFactory(
+                new PropertyValueFactory("weekDay"));
+        dateClm.setCellValueFactory(
+                new PropertyValueFactory("dateTime"));
+        absenceClm.setCellValueFactory(
+                new PropertyValueFactory("BeenToSchool"));
     }
 
     public void setStudent(Student student) {
@@ -107,6 +131,30 @@ public class StudentViewController implements Initializable
         nameLbl.setText(studentFName + " " + studentLName);
         //tfAbsence.setText("BABY IS DEAD");
         //tfCourse.setText(studentCourse);
+        
+        barChart.setTitle("Absent Days");
+        nrAxis.setLabel("Days");
+        daysAxis.setLabel("Absent Days");
+        barChart.setLegendVisible(false);
+        barChart.setVisible(true);
+        XYChart.Series<String, Number> series1 = new XYChart.Series();
+        series1.getData().add(new XYChart.Data("Monday", svm.absentMondays(svm.getStudent().getStudentId())));
+        series1.getData().add(new XYChart.Data("Thuesday", svm.absentTuesday(svm.getStudent().getStudentId())));
+        series1.getData().add(new XYChart.Data("Wednesday", svm.absentWednesday(svm.getStudent().getStudentId())));
+        series1.getData().add(new XYChart.Data("Thursday", svm.absentThursday(svm.getStudent().getStudentId())));
+        series1.getData().add(new XYChart.Data("Friday", svm.absentFriday(svm.getStudent().getStudentId())));
+        
+        List<XYChart.Series<String, Number>> list = new ArrayList<>();
+        ObservableList<XYChart.Series<String, Number>> data = FXCollections.observableList(list);
+        data.add(series1);
+        barChart.setData(data);
+        
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList(
+        new PieChart.Data("Days attended", 100 - svm.getStudent().getAbsencePercent()),
+        new PieChart.Data("Days absent", svm.getStudent().getAbsencePercent()));
+        pieChart.setTitle("Attendance");
+        pieChart.setData(pieChartData);
+        
     }    
 
     @FXML

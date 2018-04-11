@@ -9,6 +9,8 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -122,6 +124,13 @@
                           </yAxis>
                         </BarChart>
                         <PieChart fx:id="pieChart" prefHeight="315.0" prefWidth="215.0" title="Attendance" GridPane.columnIndex="1" />
+                        <TableView fx:id="daysTable" prefHeight="320.0" prefWidth="227.0" style="-fx-background-color: darkgrey;">
+                          <columns>
+                            <TableColumn fx:id="dayClm" prefWidth="72.0" text="Day" />
+                            <TableColumn fx:id="dateClm" prefWidth="63.0" text="Date" />
+                              <TableColumn fx:id="absenceClm" prefWidth="78.0" text="Present/Absent" />
+                          </columns>
+                        </TableView>
                      </children>
                   </GridPane>
                </children>

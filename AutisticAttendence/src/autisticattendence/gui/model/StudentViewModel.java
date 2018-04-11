@@ -80,9 +80,11 @@ public class StudentViewModel {
 
     public void setStudentAbsencePercent(double studentAbsencePercent) {
         student.setAbsencePercent(studentAbsencePercent / atd.size() * 100);
-        System.out.println(studentAbsencePercent);
-        System.out.println(atd.size());
         studentAbsencePercents = student.getAbsencePercent();
+    }
+    
+    public double getStudentAbsencePercent () {
+        return studentAbsencePercents;
     }
 
     public void updateStudent(Student student) {
@@ -100,5 +102,25 @@ public class StudentViewModel {
     public void loadStudents() {
         studentList.clear();
         studentList.addAll(stdMan.getAllStudents());
+    }
+
+    public int absentMondays(int studentId) {
+        return stdMan.absentMondays(studentId);
+    }
+
+    public int absentTuesday(int studentId) {
+        return stdMan.absentTuesday(studentId);
+    }
+
+    public int absentWednesday(int studentId) {
+        return stdMan.absentWednesday(studentId);
+    }
+
+    public int absentThursday(int studentId) {
+        return stdMan.absentThursday(studentId);
+    }
+
+    public int absentFriday(int studentId) {
+        return stdMan.absentFriday(studentId);
     }
 }
